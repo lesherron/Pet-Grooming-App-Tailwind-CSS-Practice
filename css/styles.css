@@ -1,0 +1,404 @@
+/* Base styles for the page */
+@layer base {
+    :root {
+      /* Light mode color variables */
+      --background: 0 0% 100% 0.1;
+      --bg-image: url("../img/Paws-Claws-Pet-Grooming-Background.png");
+      --foreground: 0 0% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 0 0% 3.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 0 0% 3.9%;
+      --primary: 0 0% 9%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 0 0% 96.1%;
+      --secondary-foreground: 0 0% 9%;
+      --muted: 0 0% 96.1%;
+      --muted-foreground: 0 0% 45.1%;
+      --accent: 0 0% 96.1%;
+      --accent-foreground: 0 0% 9%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 89.8%;
+      --input: 0 0% 89.8%;
+      --ring: 0 0% 3.9%;
+      /* Font size variables */
+      --font-size-small: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-medium: 1.25rem;
+      --font-size-large: 1.5rem;
+      --font-size-xl: 2rem;
+      --font-size-2xl: 2.5rem;
+      /* Font weight variables */
+      --font-weight-light: 300;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+    }
+  
+    /* Dark mode color variables */
+    .dark {
+      --background: 0 0% 3.9%;
+      --bg-image: url("../img/Paws-Claws-Pet-Grooming-Background.png");
+      --foreground: 0 0% 98%;
+      --card: 0 0% 3.9%;
+      --card-foreground: 0 0% 98%;
+      --popover: 0 0% 3.9%;
+      --popover-foreground: 0 0% 98%;
+      --primary: 0 0% 98%;
+      --primary-foreground: 0 0% 9%;
+      --secondary: 0 0% 14.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 14.9%;
+      --muted-foreground: 0 0% 63.9%;
+      --accent: 0 0% 14.9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+      --input: 0 0% 14.9%;
+      --ring: 0 0% 83.1%;
+      /* Font size variables */
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-medium: 1.5rem;
+      --font-size-large: 1.75rem;
+      --font-size-xl: 2rem;
+      --font-size-2xl: 2.5rem;
+      /* Font weight variables */
+      --font-weight-light: 300;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+    }
+}
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* Styles for the body */
+  body::before {
+    content: "";
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    z-index: -1; /* Behind all other content */ 
+  }
+
+  body {
+    background-image: var(--bg-image); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+  /* Dark/light mode toggle button */
+  .half-circle {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, hsl(0, 0%, 0%) 50%, hsl(0, 0%, 100%) 50%);
+  }
+
+  .dark .half-circle {
+    background-image: linear-gradient(to right, hsl(0, 0%, 100%) 50%, hsl(0, 0%, 0%) 50%); /* Toggle for dark mode */
+  }
+
+  .half-circle:hover {
+    background-image: linear-gradient(to right, hsl(0, 0%, 100%) 50%, hsl(0, 0%, 0%) 50%); /* Hover effect for dark/light mode */
+  }
+
+  .dark .half-circle:hover {
+    background-image: linear-gradient(to right, hsl(0, 0%, 0%) 50%, hsl(0, 0%, 100%) 50%); /* Hover effect for dark mode */
+  }
+
+  /* Styles for the Home page */
+  html body h1, 
+  html body h2, 
+  html body h3 {
+    color: green;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  html body h2 {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+  }
+
+  html body h3 {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-normal);
+    font-style:italic;
+  }
+
+  label {
+      font-size: var(--font-size-small);
+      text-align: center;
+  }
+
+  /* Styles for the Appointment page */
+  .wrapper {
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 15px auto;
+    padding: 20px 15px;
+  }
+
+/* Calendar container */
+.calendar-container {
+    background: ivory;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Event styling */
+#event-section {
+  padding: 10px;
+  background: #f5f5f5;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-calendar #left h1 {
+  color: green;
+  text-align: center;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 10px 0;
+}
+
+#event-section h3 {
+  color: green;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+#event-section input[type="date"], 
+#event-section input[type="time"], 
+#eventDate, 
+#eventName, 
+#event-section button {
+  margin: 10px auto;
+  padding: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 95%;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+#event-section button {
+  background: green;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.event-marker::after {
+  content: " ✓";
+  color: green;
+  font-weight: bold;
+}
+
+.event-tooltip {
+  position: absolute;
+  background-color: rgba(234, 232, 232, 0.763);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.event-marker:hover .event-tooltip {
+  display: block;
+}
+
+/* Reminder styling */
+#reminder-section {
+  padding: 10px;
+  background: #f5f5f5;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#reminder-section h3 {
+  color: green;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+#reminder-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#reminder-list li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Styling delete button */
+.delete-event {
+  background: rgb(237, 19, 19);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  align-items: right;
+}
+
+/* Styling calendar button */
+.button-container-calendar button{
+  cursor: pointer;
+  background: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.button-container-calendar button:hover{
+  background: rgb(16, 82, 16);
+}
+
+/* Syling calendar table */
+.calendar-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px auto;
+  padding: 18px;
+}
+
+.calendar-table td, .calendar th {
+  padding: 15px;
+  border: 1px solid #bebdbd;
+  text-align: center;
+  vertical-align: top;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+}
+
+/* Date picker */
+.date-picker.selected {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  outline: 1px dashed #00bcd4;
+}
+
+.date-picker.selected span {
+  border-bottom: 2px solid currentColor;
+}
+
+/* Styling for speciific dates */
+.date-picker:nth-child(2) {
+  /* Monday */
+  color: red;
+}
+
+.date-picker:nth-child(7) {
+  /* Saturday */
+  color: green;
+}
+
+/* Styling for date cells hover effect */
+.date-picker:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+/* Month and year header */
+#monthAndYear {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Styling for nav buttons */
+.button-container-calendar {
+  position: relative;
+  margin-bottom: 1em;
+  overflow: hidden;
+  clear: both;
+}
+
+#prev {
+  float: left;
+}
+
+#next {
+  float: right;
+}
+
+
+/* Styling for the calendar footer */
+.footer-container-calendar {
+  margin-top: 1em;
+  border-top: 1px solid #dadada;
+  padding: 10px 0;
+}
+
+.footer-container-calendar select {
+  cursor: pointer;
+  background: #fff;
+  color: 585858;
+  border: 1px solid #bfc5c5;
+  border-radius: 3px;
+  padding: 5px 1em;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 1em;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.8em;
+  color: #585858;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.home {
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  color: green;
+}
