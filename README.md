@@ -30,7 +30,7 @@ Feel free to reach out with your feedback or questions. Together, we can build s
 ## 💡 Let's Connect
 If you'd like to contribute, collaborate, or chat, you can find me here:
 - GitHub: [Les Herron](https://github.com/lesherron)
-
+- See project: [Paws & Claws Grooming App](https://lesherron.github.io/Pet-Grooming-App-Tailwind-CSS-Practice/)
 ---
 
 Thank you for stopping by, and I can't wait to see what you'll create!
